@@ -24,8 +24,12 @@ def get_joke(request,id):
     try:
         joke=Jokes.objects.get(pk=id)
         seri=JokesSerializer(joke)
+        
         return Response(seri.data)
+        
+    
     except :
         joke=Jokes.objects.all().first()
         seri=JokesSerializer(joke)
+      
         return Response(seri.data)
